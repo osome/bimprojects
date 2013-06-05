@@ -21,17 +21,19 @@
   </div>
   <div class="field">
     <%= f.label :status %><br />
-    <%= f.text_field :status %>
+    <%= select("project", :status, options_for_select([['Active','Active'],['Closed','Closed'],['Pending','Pending'],['Waiting','Waiting']],@project.status)) %>
   </div>
 
   <div>
+    <label>Project Team:</label>
     <% for employee in Employee.find(:all) %>
     <div>
       <%= check_box_tag "project[employee_ids][]", employee.id, @project.employees.include?(employee) %>
       <%= employee.name %>
-    </div>
+    </div>    
     <% end %>
   </div>
+  <br />
 
   <div class="actions">
     <%= f.submit %>
