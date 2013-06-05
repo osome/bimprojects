@@ -14,7 +14,8 @@ class EmployeesController < ApplicationController
   # GET /employees/1.json
   def show
     @employee = Employee.find(params[:id])
-
+    @projects = @employee.projects
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @employee }

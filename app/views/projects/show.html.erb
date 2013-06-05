@@ -15,6 +15,14 @@
   <%= @project.status %>
 </p>
 
+<p>
+	<b>Team:</b>
+	<ul>
+	<% @employees.each do |em| %>
+		<li><%= link_to em.name, em %> - <%= em.department %></li>
+	<% end %>		
+	</ul>
+</p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

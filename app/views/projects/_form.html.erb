@@ -23,6 +23,16 @@
     <%= f.label :status %><br />
     <%= f.text_field :status %>
   </div>
+
+  <div>
+    <% for employee in Employee.find(:all) %>
+    <div>
+      <%= check_box_tag "project[employee_ids][]", employee.id, @project.employees.include?(employee) %>
+      <%= employee.name %>
+    </div>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

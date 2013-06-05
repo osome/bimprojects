@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
+    @employees = @project.employees
 
     respond_to do |format|
       format.html # show.html.erb
@@ -56,6 +57,8 @@ class ProjectsController < ApplicationController
   # PUT /projects/1
   # PUT /projects/1.json
   def update
+    params[:project][:employee_ids] ||= []
+    
     @project = Project.find(params[:id])
 
     respond_to do |format|
