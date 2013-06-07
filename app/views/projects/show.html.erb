@@ -19,7 +19,7 @@
 	<b>Team:</b>
 	<ul>
 	<% @employees.each do |em| %>
-		<li><%= link_to em.name, em %> - <%= em.department %></li>
+		<li><%= link_to em.name, em %> - <%= em.department %> | <%= "Send Message" %></li>
 	<% end %>		
 	</ul>
 </p>
