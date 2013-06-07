@@ -7,7 +7,7 @@ def create
 	employee = Employee.authenticate(params[:email], params[:password])
 	if employee
 		session[:employee_id] = employee.id
-		redirect_to root_url
+		redirect_to employee_url(employee.id)
 	else
 		flash.now.alert = "Invalid email or password"
 		render "new"
