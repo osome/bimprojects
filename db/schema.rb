@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130607150242) do
+ActiveRecord::Schema.define(:version => 20130607163127) do
 
   create_table "comments", :force => true do |t|
     t.integer  "employee_id"
@@ -21,15 +21,15 @@ ActiveRecord::Schema.define(:version => 20130607150242) do
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "comments", ["employee_id"], :name => "index_comments_on_employee_id"
-  add_index "comments", ["project_id"], :name => "index_comments_on_project_id"
-
   create_table "employees", :force => true do |t|
     t.string   "name"
     t.integer  "ext"
     t.string   "department"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "password_hash"
+    t.string   "password_salt"
+    t.string   "email"
   end
 
   create_table "projects", :force => true do |t|
