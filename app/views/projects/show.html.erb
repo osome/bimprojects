@@ -30,7 +30,7 @@
 		<dt><%= c.body %></dt>
 		<dd><%= Employee.find(c.employee_id).name %></dd>
 	<% end %>
-	<%= link_to "Add Comment", :controller => "comments", :action => "new", :project_id => @project.id %>
+	<%= link_to "Add Comment", new_comment_path(:project_id => @project.id, :employee_id => current_employee.id) %>
 </p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |

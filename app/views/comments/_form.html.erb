@@ -12,13 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :employee_id %><br />      
-    <%= collection_select(:comment, :employee_id, Employee.all, :id, :name)  %>
-    
+    <%= @employee.name %>
+    <%= hidden_field_tag("comment[employee_id]", @employee.id) %>    
   </div>
   <div class="field">
-    <%= f.label :project_id %><br />
-    <%= collection_select(:comment, :project_id, Project.all, :id, :name, :selected => params[:project_id]) %>
+    <%= @project.name %>
+    <%= hidden_field_tag("comment[project_id]", @project.id) %>    
   </div>
 
   <div class="field">

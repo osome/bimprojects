@@ -25,7 +25,9 @@ class CommentsController < ApplicationController
   # GET /comments/new.json
   def new
     @comment = Comment.new
-
+    @project = Project.find(params[:project_id])
+    @employee = Employee.find(params[:employee_id])
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @comment }
