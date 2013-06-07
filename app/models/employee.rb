@@ -1,6 +1,6 @@
 class Employee < ActiveRecord::Base  
 
-  attr_accessible :department, :ext, :email, :name, :password, :password_confirmation
+  attr_accessible :department, :ext, :email, :name, :password, :password_confirmation, :admin_flag
 
   attr_accessor :password
   before_save :encrypt_password

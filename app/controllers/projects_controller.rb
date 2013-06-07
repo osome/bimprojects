@@ -28,17 +28,26 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   # GET /projects/new.json
   def new
-    @project = Project.new
+    
+    if current_employee
+      @project = Project.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @project }
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @project }
+      end
+    else      
+      redirect_to root_url, notice: "You Must be logged in"
     end
   end
 
   # GET /projects/1/edit
   def edit
-    @project = Project.find(params[:id])
+    if current_employee
+      @project = Project.find(params[:id])
+    else
+      redirect_to root_url, notice: "You Must be logged in"
+    end
   end
 
   # POST /projects
@@ -78,12 +87,16 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    @project = Project.find(params[:id])
-    @project.destroy
+    if current_employee && current_employee.admin_flag == "Y"
+      @project = Project.find(params[:id])
+      @project.destroy
 
-    respond_to do |format|
-      format.html { redirect_to projects_url }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to projects_url }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to root_url, notice: "You Must be administrator"
     end
   end
 end

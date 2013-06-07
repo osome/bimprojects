@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130607163127) do
+ActiveRecord::Schema.define(:version => 20130607195633) do
 
   create_table "comments", :force => true do |t|
     t.integer  "employee_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20130607163127) do
     t.string   "password_hash"
     t.string   "password_salt"
     t.string   "email"
+    t.string   "admin_flag"
   end
 
   create_table "projects", :force => true do |t|
