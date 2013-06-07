@@ -1,4 +1,7 @@
 Projectsapp::Application.routes.draw do
+  resources :comments
+
+
   get "home/index"
 
   resources :employees

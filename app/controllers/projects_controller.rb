@@ -2,7 +2,8 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    #show projects that are not 'Closed'
+    @projects = Project.where("status != 'Closed'")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +16,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @employees = @project.employees
+    @comments = Comment.where(:project_id => params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

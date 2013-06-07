@@ -24,5 +24,13 @@
 	</ul>
 </p>
 
+<p>
+	<b>Comments:</b>
+	<% @comments.each do |c| %>
+		<dt><%= c.body %></dt>
+		<dd><%= Employee.find(c.employee_id).name %></dd>
+	<% end %>
+</p>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
