@@ -18,7 +18,7 @@
   </div>
   <div class="field">
     <%= f.label :project_id %><br />
-    <%= collection_select(:comment, :project_id, Project.all, :id, :name) %>
+    <%= collection_select(:comment, :project_id, Project.all, :id, :name, :selected => params[:project_id]) %>
   </div>
 
   <div class="field">
