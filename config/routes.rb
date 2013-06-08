@@ -3,8 +3,8 @@ Projectsapp::Application.routes.draw do
 
 
   get "home/index"
-  get "log_out" => "sessions#destroy", :as => "log_out"
-  get "log_in" => "sessions#new", :as => "log_in"
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
 
   resources :employees
   resources :projects
