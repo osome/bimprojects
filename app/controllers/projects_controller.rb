@@ -54,6 +54,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(params[:project])    
+    
 
     respond_to do |format|
       if @project.save

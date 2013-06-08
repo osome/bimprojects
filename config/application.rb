@@ -58,5 +58,8 @@ module Projectsapp
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    #paperclip
+    #config.paperclip_defaults = {:storage => :fog, :fog_credentials => {:provider => "Local", :localhost_root => "#{Rails.root}/public"}, :fog_directory => "", :fog_host => "localhost"}
   end
 end

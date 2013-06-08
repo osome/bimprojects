@@ -16,6 +16,17 @@
 </p>
 
 <p>
+	<b>Revit Model:</b>
+	<% if @project.rvtmodel_file_name.nil? %>
+	<span class="nil">No File Found, upload one.</span>
+	<% else %>
+		<%= @project.rvtmodel_file_name %> (<%= @fileSize = (@project.rvtmodel_file_size/1000000 ) %> MB) |
+	Last updated: <%= @project.rvtmodel_updated_at %>
+		<%= link_to "Download", @project.rvtmodel.url %>
+	<% end %>
+</p>
+
+<p>
 	<b>Team:</b>
 	<ul>
 	<% @employees.each do |em| %>
