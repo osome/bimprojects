@@ -36,3 +36,5 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 
 # To use debugger
 # gem 'debugger'
+
+gem "paperclip", "~> 3.0"
