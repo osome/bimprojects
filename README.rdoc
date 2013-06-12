@@ -36,7 +36,7 @@ Start nginx
     sudo /opt/nginx/sbin/nginx
 
 5. Clone the project directory into your html folder of your webserver ie.) /opt/
-    git clone https://github.com/kmorin/bimpmapp
+    git clone https://github.com/kmorin/bimprojects.git
 
 6. Edit your nginx.conf file to add the following:
 
