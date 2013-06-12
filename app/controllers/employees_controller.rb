@@ -45,7 +45,7 @@ class EmployeesController < ApplicationController
 
     respond_to do |format|
       if @employee.save
-        EmployeeMailer.welcome_email(@employee).deliver
+        #EmployeeMailer.welcome_email(@employee).deliver
         
         format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
         format.json { render json: @employee, status: :created, location: @employee }
