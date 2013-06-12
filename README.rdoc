@@ -9,21 +9,22 @@
 === Setting up the environment
 
 1. Get ruby and rails
-<pre> \curl -L https://get.rvm.io | bash -s stable</pre>
-<pre> source ~/.rvm/scripts/rvm </pre>
+    \curl -L https://get.rvm.io | bash -s stable
+    source ~/.rvm/scripts/rvm
+
 
 2. Install ruby 1.9.3
-<pre> rvm install 1.9.3 </pre>
+    rvm install 1.9.3
 
 3. Install rails 3.2
-<pre> gem install rails </pre>
+    gem install rails
 
 4. Get Passenger/Nginx up and running (disregard warning about sudoers file)
-<pre>rvmsudo gem install passenger</pre>
-<pre>rvmsudo passenger-install-nginx-module</pre>
+    rvmsudo gem install passenger
+    rvmsudo passenger-install-nginx-module
 
 if you are running on Ubuntu server, you may need some more libraries to complete, so passenger will abort and you can then install:
-<pre> sudo apt-get install libcurl4-openssl-dev </pre>
+    sudo apt-get install libcurl4-openssl-dev
 
 Now, re-run passenger-install..
 
@@ -31,13 +32,14 @@ Answer '1' to install and compile Nginx
 
 Enter the default path for directory "/opt/nginx"
 
-Start nginx <pre>sudo /opt/nginx/sbin/nginx </pre>
+Start nginx
+    sudo /opt/nginx/sbin/nginx
 
 5. Clone the project directory into your html folder of your webserver ie.) /opt/
-<pre> git clone https://github.com/kmorin/bimpmapp</pre>
+    git clone https://github.com/kmorin/bimpmapp
 
 6. Edit your nginx.conf file to add the following:
-<pre> 
+
   server {
 
   #allow for large model uploads
@@ -50,17 +52,18 @@ Start nginx <pre>sudo /opt/nginx/sbin/nginx </pre>
       rails_env development;       #set rails_env to development
     }
   }
-</pre>
 
-7. Run <pre> bundle install </pre>
+
+7. Run
+    bundle install
 
 8. Initialize your database
-<pre>rake db:schema:load</pre>
+    rake db:schema:load
 -- if you are having troubles, you need to install a js runtime such as node
 
 9. Restart Nginx to reload nginx.conf
-<pre>sudo /opt/nginx/sbin/nginx -s stop</pre>
-<pre>sudo /opt/nginx/sbin/nginx</pre>
+    sudo /opt/nginx/sbin/nginx -s stop
+    sudo /opt/nginx/sbin/nginx
 
 10. Navigate your browser to your server and start getting to work.
 
