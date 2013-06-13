@@ -2,6 +2,7 @@
 
 ## About
 #### Version 0.0.1, early stages
+[![Build Status](https://travis-ci.org/kmorin/bimprojects.png)](https://travis-ci.org/kmorin/bimprojects)
 
 A rails 3.2 app that you can run either standalone or on a platform like heroku to keep track of your BIM projects, including team members and their contat info, Revit model repository (in progress), RFIs with attachments and comments for each project.
 
