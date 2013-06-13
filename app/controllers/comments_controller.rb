@@ -75,12 +75,18 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
-
-    respond_to do |format|
-      format.html { redirect_to comments_url }
-      format.json { head :no_content }
+    if current_employee
+      @comment = Comment.find(params[:id])
+      @comment.destroy
+    
+      respond_to do |format|
+        format.html { redirect_to comments_url }        
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html {redirect_to comments_url, alert: 'Must be logged in!' }
+      end
     end
   end
 end
