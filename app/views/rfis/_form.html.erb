@@ -33,8 +33,8 @@
     <%= f.label :date_answered %><br />
     <%= f.date_select :date_answered %>
     </div>
-    <div id="answer">
-    Not Answered <%= check_box_tag "rfi[not_answered]" %>
+    <div id="check">
+    Not Answered <span id="answer"><%= check_box_tag "rfi[not_answered]" %></span>
     </div>
   </div>
   <div class="field">
