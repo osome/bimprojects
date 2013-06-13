@@ -41,11 +41,15 @@ class RfisController < ApplicationController
 
   # POST /rfis
   # POST /rfis.json
-  def create
-    @rfi = Rfi.new(params[:rfi])
+  def create    
+    @rfi = Rfi.new(params[:rfi].except(:not_answered))
+
+    if params[:rfi][:not_answered] == '1'
+      @rfi.date_answered = nil
+    end
 
     respond_to do |format|
-      if @rfi.save     
+      if @rfi.save        
         format.html { redirect_to @rfi, notice: 'Rfi was successfully created.' }
         format.json { render json: @rfi, status: :created, location: @rfi }
       else
@@ -59,9 +63,13 @@ class RfisController < ApplicationController
   # PUT /rfis/1.json
   def update
     @rfi = Rfi.find(params[:id])
+    if params[:rfi][:not_answered] == '1'
+      params[:rfi].delete_if{ |key, value| key.match(/^date_answered/) }
+      params[:rfi][:date_answered] = nil
+    end
 
     respond_to do |format|
-      if @rfi.update_attributes(params[:rfi])
+      if @rfi.update_attributes(params[:rfi].except(:not_answered))              
         format.html { redirect_to @rfi, notice: 'Rfi was successfully updated.' }
         format.json { head :no_content }
       else

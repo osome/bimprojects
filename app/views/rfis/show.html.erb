@@ -23,7 +23,11 @@
 
 <p>
 	<b>Attachment:</b>
-	<%= link_to @rfi.rfipdf_file_name, @rfi.rfipdf.url, :target => "_blank" %>
+  <% if @rfi.rfipdf_file_name.nil? %>
+    <span class="nil">No File Found, upload one.</span>
+  <% else %>
+	 <%= link_to @rfi.rfipdf_file_name, @rfi.rfipdf.url, :target => "_blank" %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_rfi_path(@rfi) %> |

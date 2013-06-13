@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label "Project" %>
-    <%= f.number_field :project_id %>
+    <%= collection_select(:rfi, :project_id, Project.all, :id, :name) %>
   </div>
   
   <div class="field">
@@ -29,8 +29,13 @@
     <%= f.date_select :date_requested %>
   </div>
   <div class="field">
+    <div id="date">
     <%= f.label :date_answered %><br />
     <%= f.date_select :date_answered %>
+    </div>
+    <div id="answer">
+    Not Answered <%= check_box_tag "rfi[not_answered]" %>
+    </div>
   </div>
   <div class="field">
     <%= f.label "RFI Attachment" %>
@@ -40,3 +45,9 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+    $('#answer').click(function() {
+      $('#date').toggle();
+    });
+</script>
