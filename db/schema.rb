@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130613143715) do
+ActiveRecord::Schema.define(:version => 20130613145551) do
 
   create_table "comments", :force => true do |t|
     t.integer  "employee_id"
@@ -55,9 +55,13 @@ ActiveRecord::Schema.define(:version => 20130613143715) do
     t.string   "title"
     t.date     "date_requested"
     t.date     "date_answered"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.integer  "project_id"
+    t.string   "rfipdf_file_name"
+    t.string   "rfipdf_content_type"
+    t.integer  "rfipdf_file_size"
+    t.datetime "rfipdf_updated_at"
   end
 
   create_table "rfizations", :force => true do |t|

@@ -21,6 +21,10 @@
   <%= @rfi.date_answered %>
 </p>
 
+<p>
+	<b>Attachment:</b>
+	<%= link_to @rfi.rfipdf_file_name, @rfi.rfipdf.url, :target => "_blank" %>
+</p>
 
 <%= link_to 'Edit', edit_rfi_path(@rfi) %> |
 <%= link_to 'Back', rfis_path %>

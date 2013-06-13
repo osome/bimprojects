@@ -45,9 +45,7 @@ class RfisController < ApplicationController
     @rfi = Rfi.new(params[:rfi])
 
     respond_to do |format|
-      if @rfi.save
-        Rfi.update_rfizations(@rfi)
-                    
+      if @rfi.save     
         format.html { redirect_to @rfi, notice: 'Rfi was successfully created.' }
         format.json { render json: @rfi, status: :created, location: @rfi }
       else
@@ -64,8 +62,6 @@ class RfisController < ApplicationController
 
     respond_to do |format|
       if @rfi.update_attributes(params[:rfi])
-        Rfi.update_rfizations(@rfi)
-
         format.html { redirect_to @rfi, notice: 'Rfi was successfully updated.' }
         format.json { head :no_content }
       else

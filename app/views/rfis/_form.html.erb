@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label "Project" %>
-    <%= select("rfi", "project_id", Project.all.collect {|p| [p.name, p.id]}) %>
+    <%= f.number_field :project_id %>
   </div>
   
   <div class="field">
@@ -31,6 +31,10 @@
   <div class="field">
     <%= f.label :date_answered %><br />
     <%= f.date_select :date_answered %>
+  </div>
+  <div class="field">
+    <%= f.label "RFI Attachment" %>
+    <%= f.file_field :rfipdf %>
   </div>
   <div class="actions">
     <%= f.submit %>
