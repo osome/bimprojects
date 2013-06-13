@@ -13,6 +13,8 @@ class Employee < ActiveRecord::Base
   has_many :comments
   has_many :teamizations
   has_many :projects, :through => :teamizations
+  has_many :rfizations
+  has_many :rfis, :through => :prjects
 
   def self.authenticate(email, password)
   	employee = find_by_email(email.downcase)

@@ -6,5 +6,7 @@ class Project < ActiveRecord::Base
   has_many :comments
   has_many :teamizations
   has_many :employees, :through => :teamizations
+  has_many :rfizations
+  has_many :rfis, :through => :rfizations
 
 end

@@ -1,0 +1,31 @@
+<h1>Listing rfis</h1>
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Title</th>
+    <th>Date requested</th>
+    <th>Date answered</th>
+    <th>Project</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rfis.each do |rfi| %>
+  <tr>
+    <td><%= rfi.number %></td>
+    <td><%= rfi.title %></td>
+    <td><%= rfi.date_requested %></td>
+    <td><%= rfi.date_answered %></td>
+    <td><%= rfi.project.name %></td>
+    <td><%= link_to 'Show', rfi %></td>
+    <td><%= link_to 'Edit', edit_rfi_path(rfi) %></td>
+    <td><%= link_to 'Destroy', rfi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Rfi', new_rfi_path %>

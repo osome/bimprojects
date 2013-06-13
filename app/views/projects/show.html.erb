@@ -36,6 +36,15 @@
 </p>
 
 <p>
+	<b>RFIs:</b>
+	<ul>
+	<% @rfis.each do |r| %>
+		<li><%= link_to r.number, r %> - <%= r.title %></li>
+	<% end %>
+	</ul>
+</p>
+
+<p>
 	<b>Comments:</b>
 	<% @comments.each do |c| %>
 		<% @d = c.created_at %>

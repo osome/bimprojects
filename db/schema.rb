@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130608031450) do
+ActiveRecord::Schema.define(:version => 20130613143715) do
 
   create_table "comments", :force => true do |t|
     t.integer  "employee_id"
@@ -48,6 +48,24 @@ ActiveRecord::Schema.define(:version => 20130608031450) do
     t.string   "rvtmodel_content_type"
     t.integer  "rvtmodel_file_size"
     t.datetime "rvtmodel_updated_at"
+  end
+
+  create_table "rfis", :force => true do |t|
+    t.integer  "number"
+    t.string   "title"
+    t.date     "date_requested"
+    t.date     "date_answered"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "project_id"
+  end
+
+  create_table "rfizations", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "employee_id"
+    t.integer  "rfi_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "statuses", :force => true do |t|

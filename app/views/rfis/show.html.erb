@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= @project.name %></h2>
+<p>
+  <b>Number:</b>
+  <%= @rfi.number %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @rfi.title %>
+</p>
+
+<p>
+  <b>Date requested:</b>
+  <%= @rfi.date_requested %>
+</p>
+
+<p>
+  <b>Date answered:</b>
+  <%= @rfi.date_answered %>
+</p>
+
+
+<%= link_to 'Edit', edit_rfi_path(@rfi) %> |
+<%= link_to 'Back', rfis_path %>

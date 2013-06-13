@@ -1,0 +1,38 @@
+<%= form_for(@rfi) do |f| %>
+  <% if @rfi.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rfi.errors.count, "error") %> prohibited this rfi from being saved:</h2>
+
+      <ul>
+      <% @rfi.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Project" %>
+    <%= select("rfi", "project_id", Project.all.collect {|p| [p.name, p.id]}) %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :number %><br />
+    <%= f.number_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :date_requested %><br />
+    <%= f.date_select :date_requested %>
+  </div>
+  <div class="field">
+    <%= f.label :date_answered %><br />
+    <%= f.date_select :date_answered %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

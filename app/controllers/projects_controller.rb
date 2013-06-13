@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @employees = @project.employees
     @comments = Comment.where(:project_id => params[:id])
-    
+    @rfis = @project.rfis
     
     respond_to do |format|
       format.html # show.html.erb
