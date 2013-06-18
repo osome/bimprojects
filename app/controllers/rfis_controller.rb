@@ -82,12 +82,16 @@ class RfisController < ApplicationController
   # DELETE /rfis/1
   # DELETE /rfis/1.json
   def destroy
-    @rfi = Rfi.find(params[:id])
-    @rfi.destroy
+    if current_employee && current_employee.admin_flag == 'Y'
+      @rfi = Rfi.find(params[:id])
+      @rfi.destroy
 
-    respond_to do |format|
-      format.html { redirect_to rfis_url }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to rfis_url }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to root_url, notice: "You must be Administrator"
     end
   end
 end

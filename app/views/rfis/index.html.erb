@@ -21,7 +21,8 @@
     <td><%= rfi.project.name %></td>
     <td><%= link_to 'Show', rfi %></td>
     <td><%= link_to 'Edit', edit_rfi_path(rfi) %></td>
-    <td><%= link_to 'Destroy', rfi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><% if current_employee %>
+        <%= link_to 'Destroy', rfi, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
   </tr>
 <% end %>
 </table>
