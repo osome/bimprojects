@@ -30,7 +30,7 @@
 	<b>Team:</b>
 	<ul>
 	<% @employees.each do |em| %>
-		<li><%= link_to em.name, em %> - <%= em.department %> | <%= "Send Message" %></li>
+		<li><%= link_to em.name, em %>, <%= em.department %> (<%= mail_to em.email, "Send Message", :encode => "hex", :subject => "#{@project.number}-#{@project.name}" %>)</li>
 	<% end %>		
 	</ul>
 </p>
