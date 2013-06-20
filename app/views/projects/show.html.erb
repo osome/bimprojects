@@ -39,7 +39,7 @@
 	<b>RFIs:</b>
 	<ul>
 	<% @rfis.each do |r| %>
-		<li><%= link_to r.number, r %> - <%= r.title %> <% if r.rfipdf_file_name.nil? %> <%else %> | <%=link_to "PDF", r.rfipdf.url %><% end %></li>
+		<li><%= link_to r.number, r %> - <%= r.title %> <% if r.rfipdf_file_name.nil? %> <%else %> | <%=link_to "PDF", r.rfipdf.url, target: "_blank" %><% end %></li>
 	<% end %>
 	</ul>
 </p>
